@@ -3,19 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eff2f6"
-    android:orientation="vertical" >
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1" >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@drawable/em_welcom_logo" />
-    </RelativeLayout>
+    android:orientation="vertical"
+    android:id="@+id/layout_register"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,6 +47,36 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="54dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#fff" >
+
+            <ImageView
+                android:id="@+id/iv_nick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dip"
+                android:src="@drawable/em_icon_account" />
+
+            <EditText
+                android:id="@+id/Nick"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/iv_nick"
+                android:background="@null"
+                android:hint="@string/nickname"
+                android:paddingLeft="10dip"
+                android:singleLine="true"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
@@ -69,7 +89,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dip"
-                android:src="@drawable/em_icon_pwd" />
+                android:src="@drawable/rp_forget_pwd" />
 
             <EditText
                 android:id="@+id/password"
@@ -100,7 +120,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dip"
-                android:src="@drawable/em_icon_pwd" />
+                android:src="@drawable/rp_forget_pwd" />
 
             <EditText
                 android:id="@+id/confirm_password"
@@ -119,24 +139,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_below="@id/rl_password"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="30dp"
             android:orientation="horizontal" >
-
             <Button
-                android:layout_width="match_parent"
+                android:id="@+id/btnRegister"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/em_button_login_bg"
-                android:onClick="register"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_weight="2"
+                android:background="@drawable/icon_btn_register"
+                android:gravity="center"
                 android:paddingBottom="7dp"
                 android:paddingTop="7dp"
-                android:text="@string/register"
-                android:textColor="@android:color/white"
-                android:textSize="20sp" />
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+
         </LinearLayout>
     </LinearLayout>
 
