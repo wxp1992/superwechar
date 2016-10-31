@@ -10,19 +10,6 @@
         android:layout_height="0dip"
         android:layout_weight="1" >
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerInParent="true"
-            android:src="@drawable/em_welcom_logo" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1" >
-
         <RelativeLayout
             android:id="@+id/rl_username"
             android:layout_width="match_parent"
@@ -38,7 +25,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dip"
-                android:src="@drawable/em_icon_account" />
+                android:src="@drawable/icon_account" />
 
             <EditText
                 android:id="@+id/username"
@@ -70,7 +57,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dip"
-                android:src="@drawable/em_icon_pwd" />
+                android:src="@drawable/rp_forget_pwd" />
 
             <EditText
                 android:id="@+id/password"
@@ -100,7 +87,7 @@
                 android:layout_marginLeft="10dip"
                 android:layout_marginRight="10dip"
                 android:layout_weight="1"
-                android:background="@drawable/em_button_register_bg"
+                android:background="@drawable/icon_btn_register"
                 android:gravity="center"
                 android:onClick="register"
                 android:paddingBottom="7dp"
@@ -115,7 +102,7 @@
                 android:layout_marginLeft="10dip"
                 android:layout_marginRight="10dip"
                 android:layout_weight="1"
-                android:background="@drawable/em_button_login_bg"
+                android:background="@drawable/icon_btn_login"
                 android:gravity="center"
                 android:onClick="login"
                 android:paddingBottom="7dp"
@@ -126,4 +113,11 @@
         </LinearLayout>
     </RelativeLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置服务器的IP"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        android:layout_marginBottom="30dp"/>
 </LinearLayout>
