@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="#eff2f6"
     android:orientation="vertical" >
-    <include layout="@layout/head_back" />
+    <include android:id="@+id/lr_title"  layout="@layout/view_layout_title" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -74,6 +74,7 @@
             android:orientation="horizontal" >
 
             <Button
+                android:id="@+id/btn_register"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dip"
@@ -89,6 +90,7 @@
                 android:textSize="18sp" />
 
             <Button
+                android:id="@+id/btn_login"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dip"
