@@ -9,7 +9,7 @@
         android:id="@+id/iv_splash_logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/icon_logo" />
 
@@ -18,26 +18,29 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/iv_splash_logo"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="150dp"
         android:orientation="vertical" >
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/btn_login"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/icon_btn_login"
+            android:background="#4BA948"
+            android:text="@string/login"
             android:gravity="center"
             android:onClick="login"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
         <Button
+            android:id="@+id/btn_register"
             android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/icon_btn_register"
+            android:background="#D0D0D0"
+            android:text="@string/register"
             android:gravity="center"
             android:onClick="register"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
-
     </LinearLayout>
 </RelativeLayout>

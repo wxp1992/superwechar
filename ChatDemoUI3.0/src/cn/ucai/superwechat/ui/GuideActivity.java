@@ -5,21 +5,23 @@ import android.os.Bundle;
 import android.view.View;
 
 import cn.ucai.superwechat.R;
+import cn.ucai.superwechat.utils.MFGT;
 
 public class GuideActivity extends BaseActivity {
-
+    GuideActivity mContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext = this;
         setContentView(R.layout.activity_guide);
     }
 
     public void login(View view) {
-        startActivityForResult(new Intent(this, LoginActivity.class), 0);
+        MFGT.gotoLogin(mContext);
     }
 
     public void register(View view) {
-        startActivityForResult(new Intent(this, RegisterActivity.class), 0);
+        MFGT.gotoRegister(mContext);
 
     }
 }
