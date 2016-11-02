@@ -215,8 +215,10 @@ public class LoginActivity extends BaseActivity {
                         }
                     } else {
                         pd.dismiss();
-                        L.e(TAG,"login fail  "+result);
+                        L.e(TAG, "login fail  " + result);
                     }
+                } else {
+                    pd.dismiss();
                 }
             }
 
