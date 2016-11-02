@@ -39,6 +39,7 @@ import cn.ucai.superwechat.R;
 import cn.ucai.superwechat.SuperWeChatApplication;
 import cn.ucai.superwechat.SuperWeChatHelper;
 import cn.ucai.superwechat.db.SuperWeChatDBManager;
+import cn.ucai.superwechat.utils.MD5;
 import cn.ucai.superwechat.utils.MFGT;
 
 /**
@@ -68,14 +69,15 @@ public class LoginActivity extends BaseActivity {
         if (SuperWeChatHelper.getInstance().isLoggedIn()) {
             autoLogin = true;
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
-
             return;
         }
         setContentView(R.layout.em_activity_login);
         ButterKnife.bind(this);
+        setListener();
         initView();
+    }
 
-
+    private void setListener() {
         // if user changed, clear the password
         mUsername.addTextChangedListener(new TextWatcher() {
             @Override
@@ -93,12 +95,12 @@ public class LoginActivity extends BaseActivity {
 
             }
         });
-        if (SuperWeChatHelper.getInstance().getCurrentUsernName() != null) {
-            mUsername.setText(SuperWeChatHelper.getInstance().getCurrentUsernName());
-        }
     }
 
     private void initView() {
+        if (SuperWeChatHelper.getInstance().getCurrentUsernName() != null) {
+            mUsername.setText(SuperWeChatHelper.getInstance().getCurrentUsernName());
+        }
         mImgBack.setVisibility(View.VISIBLE);
         mTxtTitle.setVisibility(View.VISIBLE);
         mTxtTitle.setText(R.string.login);
@@ -106,10 +108,8 @@ public class LoginActivity extends BaseActivity {
 
     /**
      * login
-     *
-     * @param view
      */
-    public void login(View view) {
+    public void login() {
         if (!EaseCommonUtils.isNetWorkConnected(this)) {
             Toast.makeText(this, R.string.network_isnot_available, Toast.LENGTH_SHORT).show();
             return;
@@ -150,7 +150,7 @@ public class LoginActivity extends BaseActivity {
         final long start = System.currentTimeMillis();
         // call login method
         Log.d(TAG, "EMClient.getInstance().login");
-        EMClient.getInstance().login(currentUsername, currentPassword, new EMCallBack() {
+        EMClient.getInstance().login(currentUsername,  MD5.getMessageDigest(currentPassword), new EMCallBack() {
 
             @Override
             public void onSuccess() {
@@ -222,6 +222,7 @@ public class LoginActivity extends BaseActivity {
                 MFGT.gotoRegister(this);
                 break;
             case R.id.btn_login:
+                login();
                 break;
         }
     }
