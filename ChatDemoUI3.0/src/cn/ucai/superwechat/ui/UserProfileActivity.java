@@ -87,8 +87,8 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 //    		}
 
     			tvUsername.setText(username);
-    			EaseUserUtils.setUserNick(username, tvNickName);
-    			EaseUserUtils.setUserAvatar(this, username, headAvatar);
+    			EaseUserUtils.setAppUserNick(username, tvNickName);
+    			EaseUserUtils.setAppUserAvatar(this, username, headAvatar);
 		}
 	}
 
