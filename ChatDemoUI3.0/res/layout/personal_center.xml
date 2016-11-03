@@ -60,6 +60,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/itme_ll_photo_album"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/white"
@@ -88,6 +89,7 @@
             android:background="#D3D3D3"/>
 
         <LinearLayout
+            android:id="@+id/item_ll_collect"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/white"
@@ -118,6 +120,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/item_ll_purse"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/white"
@@ -146,6 +149,7 @@
             android:background="#D3D3D3"/>
 
         <LinearLayout
+            android:id="@+id/item_ll_card_package"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/white"
@@ -169,6 +173,7 @@
 
 
     <LinearLayout
+        android:id="@+id/item_ll_countenance"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -191,6 +196,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/item_ll_settings"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
