@@ -40,6 +40,13 @@ public class EaseUserUtils {
 
         return null;
     }
+    public static User getCurrentAppUserInfo(){
+        String username = EMClient.getInstance().getCurrentUser();
+        if(userProvider != null)
+            return userProvider.getAppUser(username);
+
+        return null;
+    }
     
     /**
      * set user avatar
@@ -127,7 +134,7 @@ public class EaseUserUtils {
         setAppUserName("",username,textView);
     }
 
-    private static void setAppUserName(String suffix,String username, TextView textView) {
+    public static void setAppUserName(String suffix,String username, TextView textView) {
         textView.setText(suffix + username);
     }
 }
