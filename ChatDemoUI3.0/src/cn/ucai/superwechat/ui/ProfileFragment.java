@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.ucai.superwechat.Constant;
 import cn.ucai.superwechat.R;
+import cn.ucai.superwechat.utils.MFGT;
 
 public class ProfileFragment extends Fragment {
     @BindView(R.id.iv_profile_avatar)
@@ -57,6 +58,7 @@ public class ProfileFragment extends Fragment {
                 break;
             //end of red packet code
             case R.id.tv_profile_settings:
+                MFGT.gotoSettings(getActivity());
                 break;
         }
     }
