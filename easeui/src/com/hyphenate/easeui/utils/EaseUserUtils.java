@@ -88,9 +88,8 @@ public class EaseUserUtils {
     public static void setAppUserAvatar(Context context, String username, ImageView imageView){
         User user = getAppUserInfo(username);
         if(user != null && user.getAvatar() != null){
-
+            Log.e("user.getAvatar()=",user.getAvatar());
             try {
-                Log.e("user.getAvatar()=",user.getAvatar());
                 int avatarResId = Integer.parseInt(user.getAvatar());
                 Glide.with(context).load(avatarResId).into(imageView);
             } catch (Exception e) {
