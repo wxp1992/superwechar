@@ -161,7 +161,7 @@ public class SettingsActivity extends BaseActivity implements OnClickListener {
 		chatOptions = EMClient.getInstance().getOptions();
 		
 		blacklistContainer.setOnClickListener(this);
-		userProfileContainer.setOnClickListener(this);
+//		userProfileContainer.setOnClickListener(this);
 		rl_switch_notification.setOnClickListener(this);
 		rl_switch_sound.setOnClickListener(this);
 		rl_switch_vibrate.setOnClickListener(this);
