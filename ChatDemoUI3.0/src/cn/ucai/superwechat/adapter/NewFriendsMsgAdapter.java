@@ -107,7 +107,7 @@ public class NewFriendsMsgAdapter extends ArrayAdapter<InviteMessage> {
 						Result result = ResultUtils.getResultFromJson(s, User.class);
 						if (result != null && result.isRetMsg()) {
 							User user = (User) result.getRetData();
-							EaseUserUtils.setAppUserAvatar(context, user.getMUserName(), holder.avator);
+							EaseUserUtils.setAppUserPathAvatar(context, user.getAvatar(), holder.avator);
 							EaseUserUtils.setAppUserNick(user.getMUserNick(),holder.name);
 						}
 					}
@@ -130,7 +130,7 @@ public class NewFriendsMsgAdapter extends ArrayAdapter<InviteMessage> {
                 holder.agree.setBackgroundResource(android.R.drawable.btn_default);
                 holder.agree.setText(str2);
 			    
-				holder.status.setVisibility(View.VISIBLE);
+				holder.status.setVisibility(View.INVISIBLE);
 				holder.status.setEnabled(true);
 				holder.status.setBackgroundResource(android.R.drawable.btn_default);
 				holder.status.setText(str7);

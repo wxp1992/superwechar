@@ -123,6 +123,18 @@ public class EaseUserUtils {
         String username = EMClient.getInstance().getCurrentUser();
         setAppUserAvatar(activity,username,imageView);
     }
+    public static void setAppUserPathAvatar(Context context,String path,ImageView imageView) {
+        if (path != null) {
+            try {
+                int avatarResId = Integer.parseInt(path);
+                Glide.with(context).load(avatarResId).into(imageView);
+            } catch (Exception e) {
+                Glide.with(context).load(path).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.default_hd_avatar).into(imageView);
+            }
+        } else {
+            Glide.with(context).load(R.drawable.default_hd_avatar).into(imageView);
+        }
+    }
 
     public static void setCurrentAppUserNick(TextView textView) {
         String username = EMClient.getInstance().getCurrentUser();
