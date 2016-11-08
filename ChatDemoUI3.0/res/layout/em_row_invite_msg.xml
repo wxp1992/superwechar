@@ -5,6 +5,44 @@
     android:background="@drawable/ease_mm_listitem_grey"
     android:orientation="vertical" >
 
+    <LinearLayout
+         android:visibility="gone"
+           android:id="@+id/ll_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <View
+            style="@style/devide_line_eee"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="3dp"
+            android:background="#dfdfdf" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/group_chat"
+               android:textColor="#888888"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/tv_groupName"
+                 android:textColor="#888888"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_row_weixin"
@@ -82,7 +120,7 @@
             android:text="@string/agree"
             android:textSize="13sp"
             android:visibility="gone" />
-        
+
         <Button
             android:id="@+id/user_state"
             android:layout_width="wrap_content"
@@ -95,43 +133,5 @@
             android:text="@string/refuse"
             android:textSize="13sp" />
     </RelativeLayout>
-
-    <LinearLayout
-         android:visibility="gone"
-           android:id="@+id/ll_group"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-
-        <View
-            style="@style/devide_line_eee"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="3dp"
-            android:background="#dfdfdf" />
-        <LinearLayout 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="10dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/group_chat"
-               android:textColor="#888888"
-                />
-            <TextView 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:id="@+id/tv_groupName"
-                 android:textColor="#888888"
-                />
-        </LinearLayout>
-        
-    </LinearLayout>
 
 </LinearLayout>
