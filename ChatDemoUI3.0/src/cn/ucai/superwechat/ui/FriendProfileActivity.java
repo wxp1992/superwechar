@@ -15,6 +15,7 @@ import butterknife.OnClick;
 import cn.ucai.superwechat.I;
 import cn.ucai.superwechat.R;
 import cn.ucai.superwechat.SuperWeChatHelper;
+import cn.ucai.superwechat.utils.L;
 import cn.ucai.superwechat.utils.MFGT;
 
 /**
@@ -48,6 +49,7 @@ public class FriendProfileActivity extends BaseActivity {
         user = (User) getIntent().getSerializableExtra(I.User.USER_NAME);
         if (user == null) {
             MFGT.finish(this);
+//            return;
         }
         initView();
     }
@@ -86,6 +88,7 @@ public class FriendProfileActivity extends BaseActivity {
                 MFGT.gotoAddFirendMsg(this,user.getMUserName());
                 break;
             case R.id.btn_send_msg:
+                MFGT.gotoChat(this,user.getMUserName());
                 break;
             case R.id.btn_send_video:
                 break;
