@@ -226,8 +226,11 @@ public class NewFriendsMsgAdapter extends ArrayAdapter<InviteMessage> {
 							buttonAgree.setText(str2);
 							buttonAgree.setBackgroundDrawable(null);
 							buttonAgree.setEnabled(false);
-							
+							buttonAgree.setVisibility(View.GONE);
 							buttonRefuse.setVisibility(View.INVISIBLE);
+							buttonRefuse.setText(str2);
+							buttonRefuse.setBackgroundDrawable(null);
+
 						}
 					});
 				} catch (final Exception e) {
