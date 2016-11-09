@@ -102,6 +102,15 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
     MainTabAdpter adapter;
     TitlePopup mTitlePopup;
 
+    private AlertDialog.Builder conflictBuilder;
+    private AlertDialog.Builder accountRemovedBuilder;
+    private boolean isConflictDialogShow;
+    private boolean isAccountRemovedDialogShow;
+    private BroadcastReceiver internalDebugReceiver;
+    private ConversationListFragment conversationListFragment;
+    private BroadcastReceiver broadcastReceiver;
+    private LocalBroadcastManager broadcastManager;
+
     /**
      * check if current user account was remove
      */
@@ -120,6 +129,7 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
         // runtime permission for android 6.0, just require all permissions here for simple
         requestPermissions();
         contactListFragment = new ContactListFragment();
+        conversationListFragment = new ConversationListFragment();
         initView();
         ument();
         checkAccount();
@@ -127,7 +137,6 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
 
         inviteMessgeDao = new InviteMessgeDao(this);
         UserDao userDao = new UserDao(this);
-//		conversationListFragment = new ConversationListFragment();
 //		SettingsFragment settingFragment = new SettingsFragment();
 //		fragments = new Fragment[] { conversationListFragment, contactListFragment, settingFragment};
 //
@@ -220,7 +229,7 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
         adapter.clear();
         mLayoutViewpage.setAdapter(adapter);
         mLayoutViewpage.setOffscreenPageLimit(4);
-        adapter.addFragment(new ConversationListFragment(), getString(R.string.app_name));
+        adapter.addFragment(conversationListFragment, getString(R.string.app_name));
         adapter.addFragment(contactListFragment, getString(R.string.contacts));
         adapter.addFragment(new DiscoverFragment(), getString(R.string.discover));
         adapter.addFragment(new ProfileFragment(), getString(R.string.me));
@@ -296,12 +305,12 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
             public void run() {
                 // refresh unread count
                 updateUnreadLabel();
-//				if (currentTabIndex == 0) {
-//					// refresh conversation list
-//					if (conversationListFragment != null) {
-//						conversationListFragment.refresh();
-//					}
-//				}
+				if (currentTabIndex == 0) {
+					// refresh conversation list
+					if (conversationListFragment != null) {
+						conversationListFragment.refresh();
+					}
+				}
             }
         });
     }
@@ -323,13 +332,12 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
             public void onReceive(Context context, Intent intent) {
                 updateUnreadLabel();
                 updateUnreadAddressLable();
-//                if (currentTabIndex == 0) {
-//                    // refresh conversation list
-//                    if (conversationListFragment != null) {
-//                        conversationListFragment.refresh();
-//                    }
-//                } else
-                    if (currentTabIndex == 1) {
+                if (currentTabIndex == 0) {
+                    // refresh conversation list
+                    if (conversationListFragment != null) {
+                        conversationListFragment.refresh();
+                    }
+                } else if (currentTabIndex == 1) {
                     if(contactListFragment != null) {
                         contactListFragment.refresh();
                     }
@@ -536,14 +544,7 @@ public class MainActivity extends BaseActivity implements DMTabHost.OnCheckedCha
         return super.onKeyDown(keyCode, event);
     }
 
-    private AlertDialog.Builder conflictBuilder;
-    private AlertDialog.Builder accountRemovedBuilder;
-    private boolean isConflictDialogShow;
-    private boolean isAccountRemovedDialogShow;
-    private BroadcastReceiver internalDebugReceiver;
-    private ConversationListFragment conversationListFragment;
-    private BroadcastReceiver broadcastReceiver;
-    private LocalBroadcastManager broadcastManager;
+
 
     /**
      * show the dialog when user logged into another device
