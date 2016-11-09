@@ -49,7 +49,7 @@ public class FriendProfileActivity extends BaseActivity {
         user = (User) getIntent().getSerializableExtra(I.User.USER_NAME);
         if (user == null) {
             MFGT.finish(this);
-//            return;
+            return;
         }
         initView();
     }
