@@ -1136,6 +1136,7 @@ public class SuperWeChatHelper {
                            // save the contact list to database
                            UserDao dao = new UserDao(appContext);
                            List<User> users = new ArrayList<User>(userlist.values());
+                           L.e(TAG,"=========================="+users.toString());
                            dao.saveAppContactList(users);
                            broadcastManager.sendBroadcast(new Intent(Constant.ACTION_CONTACT_CHANAGED));
                        }
@@ -1148,7 +1149,7 @@ public class SuperWeChatHelper {
 
            }
        });
-       
+       broadcastManager.sendBroadcast(new Intent(Constant.ACTION_CONTACT_CHANAGED));
        new Thread(){
            @Override
            public void run(){
