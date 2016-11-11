@@ -14,6 +14,8 @@ import com.hyphenate.EMError;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMGroup;
 import cn.ucai.superwechat.R;
+
+import com.hyphenate.easeui.utils.EaseUserUtils;
 import com.hyphenate.exceptions.HyphenateException;
 
 public class PublicGroupsSeachActivity extends BaseActivity{
@@ -58,6 +60,7 @@ public class PublicGroupsSeachActivity extends BaseActivity{
                             pd.dismiss();
                             containerLayout.setVisibility(View.VISIBLE);
                             nameText.setText(searchedGroup.getGroupName());
+//                            EaseUserUtils.setAppGroupAvatar(getApplicationContext(),searchedGroup.getGroupName());
                         }
                     });
                     
