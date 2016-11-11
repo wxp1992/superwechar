@@ -74,8 +74,10 @@ public class FriendProfileActivity extends BaseActivity {
     }
 
     private void syncFail() {
-        MFGT.finish(this);
-        return;
+        if (!isFriend) {
+            MFGT.finish(this);
+            return;
+        }
     }
 
     private void syncUserInfo() {
@@ -85,12 +87,13 @@ public class FriendProfileActivity extends BaseActivity {
                 if (s != null) {
                     Result result = ResultUtils.getResultFromJson(s, User.class);
                     if (result != null && result.isRetMsg()) {
-                        user = (User) result.getRetData();
-                        if (user != null) {
-                            setUserInfo();
+                        User u = (User) result.getRetData();
+                        if (u != null) {
                             if (isFriend) {
-                                SuperWeChatHelper.getInstance().saveAppContact(user);
+                                SuperWeChatHelper.getInstance().saveAppContact(u);
                             }
+                            user = u;
+                            setUserInfo();
                         } else {
                             syncFail();
                         }
