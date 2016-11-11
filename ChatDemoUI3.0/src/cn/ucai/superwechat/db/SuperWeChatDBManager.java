@@ -10,6 +10,8 @@ import cn.ucai.superwechat.SuperWeChatApplication;
 import cn.ucai.superwechat.domain.InviteMessage;
 import cn.ucai.superwechat.domain.InviteMessage.InviteMesageStatus;
 import cn.ucai.superwechat.domain.RobotUser;
+import cn.ucai.superwechat.utils.L;
+
 import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.domain.User;
 import com.hyphenate.easeui.utils.EaseCommonUtils;
@@ -418,6 +420,7 @@ public class SuperWeChatDBManager {
             }
             cursor.close();
         }
+        L.e("users==size====="+users.size());
         return users;
     }
 
@@ -427,7 +430,7 @@ public class SuperWeChatDBManager {
             db.delete(UserDao.USER_TABLE_NAME, null, null);
             for (User user : contactList) {
                 ContentValues values = new ContentValues();
-                values.put(UserDao.COLUMN_NAME_ID, user.getMUserName());values.put(UserDao.USER_COLUMN_NAME,user.getMUserName());
+                values.put(UserDao.USER_COLUMN_NAME, user.getMUserName());values.put(UserDao.USER_COLUMN_NAME,user.getMUserName());
                 if(user.getMUserNick() != null)
                     values.put(UserDao.USER_COLUMN_NICK,user.getMUserNick());
                 if(user.getMAvatarId() != null)
